@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+"""
+@Auth :YuanHan Zheng
+"""
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -35,7 +39,7 @@ def knn_iris():
     print("直接比对真实值和预测值:\n", y_test == y_predict)
 
     # 方法2：计算准确率
-    score = estimator.score(y_predict, y_test)
+    score = estimator.score(x_test, y_test)
     print("准确率为：\n", score)
 
     return None
@@ -44,7 +48,6 @@ def knn_iris():
 def knn_iris_gscv():
     """
     用KNN算法对鸢尾花进行分类，添加网格搜索和交叉验证
-    :return:
     """
     # 1）获取数据
     iris = load_iris()
@@ -91,7 +94,6 @@ def knn_iris_gscv():
 def nb_news():
     """
     用朴素贝叶斯算法对新闻进行分类
-    :return:
     """
     # 1）获取数据
     news = fetch_20newsgroups(subset="all")
@@ -124,7 +126,6 @@ def nb_news():
 def decision_iris():
     """
     用决策树对鸢尾花进行分类
-    :return:
     """
     # 1）获取数据集
     iris = load_iris()
@@ -154,7 +155,7 @@ def decision_iris():
 
 if __name__ == "__main__":
     # 代码1： 用KNN算法对鸢尾花进行分类
-    knn_iris()
+    # knn_iris()
 
     # 代码2：用KNN算法对鸢尾花进行分类，添加网格搜索和交叉验证
     # knn_iris_gscv()
@@ -163,4 +164,4 @@ if __name__ == "__main__":
     # nb_news()
 
     # 代码4：用决策树对鸢尾花进行分类
-    # decision_iris()
+    decision_iris()
